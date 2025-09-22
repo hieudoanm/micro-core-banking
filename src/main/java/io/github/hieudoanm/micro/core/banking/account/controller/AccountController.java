@@ -20,36 +20,38 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AccountController {
 
-    private final AccountRepository accountRepository;
+  private final AccountRepository accountRepository;
 
-    @PostMapping
-    public ResponseEntity<Account> createAccount(@Valid @RequestBody CreateAccountRequest request) {
-        Account account = Account.builder()
-                .customerId(request.getCustomerId())
-                .accountNumber(generateAccountNumber())
-                .accountType(request.getAccountType())
-                .currency(request.getCurrency())
-                .balance(request.getInitialBalance())
-                .status(AccountStatus.ACTIVE)
-                .build();
+  @PostMapping
+  public ResponseEntity<Account> createAccount(@Valid @RequestBody CreateAccountRequest request) {
+    Account account =
+        Account.builder()
+            .customerId(request.getCustomerId())
+            .accountNumber(generateAccountNumber())
+            .accountType(request.getAccountType())
+            .currency(request.getCurrency())
+            .balance(request.getInitialBalance())
+            .status(AccountStatus.ACTIVE)
+            .build();
 
-        return ResponseEntity.ok(accountRepository.save(account));
-    }
+    return ResponseEntity.ok(accountRepository.save(account));
+  }
 
-    @GetMapping
-    public List<Account> getAllAccounts() {
-        return accountRepository.findAll();
-    }
+  @GetMapping
+  public List<Account> getAllAccounts() {
+    return accountRepository.findAll();
+  }
 
-    @GetMapping("/{accountNumber}")
-    public ResponseEntity<Account> getAccountByNumber(@PathVariable String accountNumber) {
-        return accountRepository.findByAccountNumber(accountNumber)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
+  @GetMapping("/{accountNumber}")
+  public ResponseEntity<Account> getAccountByNumber(@PathVariable String accountNumber) {
+    return accountRepository
+        .findByAccountNumber(accountNumber)
+        .map(ResponseEntity::ok)
+        .orElse(ResponseEntity.notFound().build());
+  }
 
-    // Utility to generate unique account number
-    private String generateAccountNumber() {
-        return "ACCT-" + System.currentTimeMillis();
-    }
+  // Utility to generate unique account number
+  private String generateAccountNumber() {
+    return "ACCT-" + System.currentTimeMillis();
+  }
 }

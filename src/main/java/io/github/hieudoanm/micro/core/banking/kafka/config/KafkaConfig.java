@@ -8,19 +8,13 @@ import org.springframework.kafka.config.TopicBuilder;
 @Configuration
 public class KafkaConfig {
 
-    @Bean
-    public NewTopic transactionEventsTopic() {
-        return TopicBuilder.name("transaction-events")
-                .partitions(3)
-                .replicas(1)
-                .build();
-    }
+  @Bean
+  public NewTopic transactionEventsTopic() {
+    return TopicBuilder.name("transaction-events").partitions(3).replicas(1).build();
+  }
 
-    @Bean
-    public NewTopic auditLogEventsTopic() {
-        return TopicBuilder.name("audit-log-events")
-                .partitions(3)
-                .replicas(1)
-                .build();
-    }
+  @Bean
+  public NewTopic auditLogEventsTopic() {
+    return TopicBuilder.name("audit-log-events").partitions(3).replicas(1).build();
+  }
 }
