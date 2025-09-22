@@ -1,0 +1,89 @@
+plugins {
+    id 'java'
+    id 'checkstyle'
+    id 'pmd'
+    id 'org.springframework.boot' version '3.5.6'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'io.github.hieudoanm'
+version = '0.0.1-SNAPSHOT'
+description = 'micro-core-banking'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    annotationProcessor 'org.projectlombok:lombok'
+
+    compileOnly 'org.projectlombok:lombok'
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+    implementation 'org.flywaydb:flyway-core'
+    implementation 'org.postgresql:postgresql'
+    implementation 'org.projectlombok:lombok'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.kafka:spring-kafka'
+
+    testImplementation 'com.h2database:h2'
+    testImplementation 'org.mockito:mockito-core'
+    testImplementation 'org.mockito:mockito-junit-jupiter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.kafka:spring-kafka-test'
+
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+/**
+ * -------------------------
+ * Checkstyle Configuration
+ * -------------------------
+ */
+checkstyle {
+    toolVersion = '10.20.0' // Latest stable version
+    config = resources.text.fromFile('config/checkstyle/checkstyle.xml')
+    ignoreFailures = false  // Fail build if violations are found
+}
+
+tasks.withType(Checkstyle).configureEach {
+    reports {
+        xml.required = false
+        html.required = true
+        html.outputLocation = file("$buildDir/reports/checkstyle/checkstyle.html")
+    }
+}
+
+/**
+ * -------------------------
+ * PMD Configuration
+ * -------------------------
+ */
+pmd {
+    toolVersion = '6.55.0' // Latest PMD version
+    ruleSets = [] // We'll use a custom ruleset instead of defaults
+    ruleSetFiles = files('config/pmd/pmd-ruleset.xml')
+    ignoreFailures = false  // Fail build if PMD violations are found
+}
+
+tasks.withType(Pmd).configureEach {
+    reports {
+        xml.required = false
+        html.required = true
+        html.outputLocation = file("$buildDir/reports/pmd/pmd.html")
+    }
+}
