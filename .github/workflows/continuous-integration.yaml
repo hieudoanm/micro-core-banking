@@ -42,7 +42,7 @@ jobs:
 
       # Step 4: Verify Gradle wrapper
       - name: Verify Gradle Wrapper
-        run: ./gradlew wrapper --gradle-version
+        run: ./gradlew wrapper --gradle-version 9.1.0
 
       # Step 5: Build and run tests
       - name: Build and Test
