@@ -40,14 +40,14 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web:3.5.6'
 
     // --- Kafka ---
-    implementation 'org.springframework.kafka:spring-kafka:3.2.4'
+    implementation 'org.springframework.kafka:spring-kafka:3.3.10'
 
     // --- Test dependencies ---
     testImplementation 'com.h2database:h2:2.3.232'
     testImplementation 'org.mockito:mockito-core:5.20.0'
     testImplementation 'org.mockito:mockito-junit-jupiter:5.20.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:3.5.6'
-    testImplementation 'org.springframework.kafka:spring-kafka-test:3.2.4'
+    testImplementation 'org.springframework.kafka:spring-kafka-test:3.3.10'
 
     // JUnit Platform (needed for running tests)
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.13.4'
