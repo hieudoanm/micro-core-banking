@@ -50,7 +50,7 @@ dependencies {
     testImplementation 'org.springframework.kafka:spring-kafka-test:3.2.4'
 
     // JUnit Platform (needed for running tests)
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.11.3'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.13.4'
 }
 
 
