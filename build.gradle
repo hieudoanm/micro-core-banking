@@ -58,7 +58,7 @@ dependencies {
     testImplementation 'org.mockito:mockito-junit-jupiter:5.20.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:3.5.6'
     testImplementation 'org.springframework.kafka:spring-kafka-test:3.3.10'
-    testImplementation 'org.testcontainers:kafka:1.20.0'
+    testImplementation 'org.testcontainers:kafka:1.21.3'
 }
 
 
