@@ -55,7 +55,7 @@ tasks.named('test') {
  * -------------------------
  */
 checkstyle {
-    toolVersion = '10.20.0' // Latest stable version
+    toolVersion = '10.26.1' // Latest stable version
     config = resources.text.fromFile('config/checkstyle/checkstyle.xml')
     ignoreFailures = false  // Fail build if violations are found
 }
