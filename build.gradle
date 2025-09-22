@@ -30,7 +30,7 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.2'
 
     // --- Database ---
-    implementation 'org.flywaydb:flyway-core:10.17.0'
+    implementation 'org.flywaydb:flyway-core:10.22.0'
     implementation 'org.postgresql:postgresql:42.7.8'
 
     // --- Spring Boot ---
