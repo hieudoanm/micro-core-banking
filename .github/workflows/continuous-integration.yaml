@@ -9,7 +9,6 @@ on:
       - "feature/**"   # Feature branches
       - "renovate/**"  # Renovate bot branches
       - "dependabot/**" # Dependabot branches
-  pull_request:
 
 jobs:
   ci:
@@ -45,8 +44,8 @@ jobs:
         run: ./gradlew wrapper --gradle-version 9.1.0
 
       # Step 5: Build and run tests
-      - name: Build and Test
-        run: ./gradlew clean build test --info
+      - name: Build
+        run: ./gradlew clean build --info
 
       # Step 6: Run Checkstyle
       - name: Run Checkstyle
