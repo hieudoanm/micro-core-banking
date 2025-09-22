@@ -55,7 +55,7 @@ dependencies {
     implementation 'org.springframework.kafka:spring-kafka'
 
     // --- Avro ---
-    implementation 'org.apache.avro:avro:1.11.2' // Core Avro library
+    implementation 'org.apache.avro:avro:1.12.0' // Core Avro library
 
     // --- Test dependencies ---
     testImplementation 'com.h2database:h2'
