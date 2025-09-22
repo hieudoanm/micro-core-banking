@@ -27,7 +27,10 @@ dependencies {
     implementation 'org.projectlombok:lombok:1.18.42'
 
     // --- Jackson (JSON handling) ---
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.20.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+    implementation 'com.fasterxml.jackson.core:jackson-core'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations'
+    implementation 'com.fasterxml.jackson.module:jackson-module-scala_2.13'
 
     // --- Database ---
     implementation 'org.flywaydb:flyway-core:11.13.1'
@@ -48,9 +51,6 @@ dependencies {
     testImplementation 'org.mockito:mockito-junit-jupiter:5.20.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:3.5.6'
     testImplementation 'org.springframework.kafka:spring-kafka-test:3.3.10'
-
-    // JUnit Platform (needed for running tests)
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.13.4'
 }
 
 

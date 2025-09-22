@@ -3,7 +3,6 @@ package io.github.hieudoanm.micro.core.banking.transaction.service;
 import io.github.hieudoanm.micro.core.banking.account.entity.Account;
 import io.github.hieudoanm.micro.core.banking.account.enums.AccountStatus;
 import io.github.hieudoanm.micro.core.banking.account.repository.AccountRepository;
-import io.github.hieudoanm.micro.core.banking.audit.service.AuditLogService;
 import io.github.hieudoanm.micro.core.banking.kafka.dto.AuditLogEvent;
 import io.github.hieudoanm.micro.core.banking.kafka.dto.TransactionEvent;
 import io.github.hieudoanm.micro.core.banking.kafka.producer.KafkaProducerService;
