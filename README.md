@@ -29,17 +29,17 @@ A 12 week Java Bootcamp for TypeScript Developers.
 
 ## TechStack
 
-| No. | Language         | [Java][java]               | [TypeScript][typescript] |
-| --- | ---------------- | -------------------------- | ------------------------ |
-| 01  | Linter           | [PMD][pmd]                 | [ESLint][eslint]         |
-| 02  | Formatter        | [CheckStyle][checkstyle]   | [Prettier][prettier]     |
-| 03  | Unit Test        | [JUnit][junit]             | [Jest][jest]             |
-| 04  | Framework        | [Spring Boot][spring-boot] | [Nest.js][nest.js]       |
-| 05  | Database         | [PostgreSQL][postgresql]   | `same`                   |
-| 06  | Migrations       | [Flyway][flyway]           | [Prisma][prisma]         |
-| 07  | ORM              | [Spring ORM][spring-orm]   | [Prisma][prisma]         |
-| 08  | Messages Broker  | [Kafka][kafka]             | `same`                   |
-| 09  | Containerisation | [OpenJDK][docker-openjdk]  | [Node.js][docker-node]   |
+| No. | Language         | [Java][java]                                    | [TypeScript][typescript] |
+| --- | ---------------- | ----------------------------------------------- | ------------------------ |
+| 01  | Linter           | [PMD][pmd]                                      | [ESLint][eslint]         |
+| 02  | Formatter        | [CheckStyle][checkstyle] + [Spotless][spotless] | [Prettier][prettier]     |
+| 03  | Unit Test        | [JUnit][junit]                                  | [Jest][jest]             |
+| 04  | Framework        | [Spring Boot][spring-boot]                      | [Nest.js][nest.js]       |
+| 05  | Database         | [PostgreSQL][postgresql]                        | `same`                   |
+| 06  | Migrations       | [Flyway][flyway]                                | [Prisma][prisma]         |
+| 07  | ORM              | [Spring ORM][spring-orm]                        | [Prisma][prisma]         |
+| 08  | Messages Broker  | [Kafka][kafka]                                  | `same`                   |
+| 09  | Containerisation | [OpenJDK][docker-openjdk]                       | [Node.js][docker-node]   |
 
 ## Tutorial
 
@@ -128,6 +128,7 @@ A 12 week Java Bootcamp for TypeScript Developers.
 [postgresql]: https://www.postgresql.org/
 [prettier]: https://prettier.io/
 [prisma]: https://www.prisma.io/
+[spotless]: https://github.com/diffplug/spotless
 [spring-boot]: https://spring.io/projects/spring-boot
 [spring-orm]: https://docs.spring.io/spring-framework/reference/data-access/orm.html
 [typescript]: https://www.typescriptlang.org/

@@ -36,3 +36,12 @@ logging:
     root: INFO
     org.springframework: INFO
     io.github.hieudoanm.micro.core.banking: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always

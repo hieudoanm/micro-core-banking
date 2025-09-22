@@ -220,20 +220,17 @@ public class TransactionService {
   private String buildAuditMessage(
       TransactionType type, Account fromAccount, Account toAccount, BigDecimal amount) {
     return switch (type) {
-      case TransactionType.DEPOSIT -> "Deposited "
-          + amount
-          + " into account "
-          + fromAccount.getAccountNumber();
-      case TransactionType.WITHDRAWAL -> "Withdrew "
-          + amount
-          + " from account "
-          + fromAccount.getAccountNumber();
-      case TransactionType.TRANSFER -> "Transferred "
-          + amount
-          + " from "
-          + fromAccount.getAccountNumber()
-          + " to "
-          + toAccount.getAccountNumber();
+      case TransactionType.DEPOSIT ->
+          "Deposited " + amount + " into account " + fromAccount.getAccountNumber();
+      case TransactionType.WITHDRAWAL ->
+          "Withdrew " + amount + " from account " + fromAccount.getAccountNumber();
+      case TransactionType.TRANSFER ->
+          "Transferred "
+              + amount
+              + " from "
+              + fromAccount.getAccountNumber()
+              + " to "
+              + toAccount.getAccountNumber();
       default -> "Unknown transaction action";
     };
   }
