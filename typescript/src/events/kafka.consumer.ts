@@ -33,7 +33,7 @@ export class KafkaConsumerService implements OnModuleInit, OnModuleDestroy {
       fromBeginning: false,
     });
 
-    this.run();
+    await this.run();
   }
 
   async onModuleDestroy() {

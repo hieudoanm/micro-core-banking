@@ -32,12 +32,7 @@ export class KafkaProducerService implements OnModuleInit, OnModuleDestroy {
     this.logger.log(`Sending message to topic "${topic}" with key "${key}"`);
     await this.producer.send({
       topic,
-      messages: [
-        {
-          key,
-          value: JSON.stringify(value),
-        },
-      ],
+      messages: [{ key, value: JSON.stringify(value) }],
     });
   }
 }
