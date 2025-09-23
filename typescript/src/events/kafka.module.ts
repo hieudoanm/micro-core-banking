@@ -1,10 +1,9 @@
-import { Global, Module } from '@nestjs/common';
-import { KafkaConsumerService } from './kafka.consumer';
-import { KafkaProducerService } from './kafka.producer';
+import { Module, Global } from '@nestjs/common';
+import { KafkaService } from './kafka.service';
 
-@Global() // Optional: makes Kafka available app-wide without re-import
+@Global()
 @Module({
-  providers: [KafkaProducerService, KafkaConsumerService],
-  exports: [KafkaProducerService, KafkaConsumerService],
+  providers: [KafkaService],
+  exports: [KafkaService],
 })
 export class KafkaModule {}
