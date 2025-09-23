@@ -1,25 +1,39 @@
-import { AccountType } from '@prisma/client';
-import {
-  IsEnum,
-  IsNotEmpty,
-  IsNumber,
-  IsPositive,
-  IsString,
-} from 'class-validator';
+import { ApiProperty } from '@nestjs/swagger';
+import { IsEnum, IsNumber, IsString } from 'class-validator';
+
+export enum AccountType {
+  SAVINGS = 'SAVINGS',
+  CHECKING = 'CHECKING',
+  CREDIT = 'CREDIT',
+}
 
 export class CreateAccountDto {
+  @ApiProperty({
+    description: 'ID of the customer who owns this account',
+    example: 'cust-12345',
+  })
   @IsString()
-  @IsNotEmpty()
   customerId: string;
 
-  @IsEnum(AccountType)
-  accountType: AccountType;
+  @ApiProperty({
+    description: 'Initial balance for the account',
+    example: 1000.0,
+  })
+  @IsNumber()
+  initialBalance: number;
 
+  @ApiProperty({
+    description: 'Currency code for the account',
+    example: 'USD',
+  })
   @IsString()
-  @IsNotEmpty()
   currency: string;
 
-  @IsNumber()
-  @IsPositive()
-  initialBalance: number;
+  @ApiProperty({
+    description: 'Type of account',
+    enum: AccountType,
+    example: AccountType.SAVINGS,
+  })
+  @IsEnum(AccountType)
+  accountType: AccountType;
 }
