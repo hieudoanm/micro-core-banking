@@ -1,4 +1,4 @@
-name: Java Continuous Integration
+name: Java CI
 
 on:
   push:
@@ -9,10 +9,12 @@ on:
       - "feature/**" # Feature branches
       - "renovate/**" # Renovate bot branches
       - "dependabot/**" # Dependabot branches
+    paths:
+      - "java/**"
 
 jobs:
   ci:
-    name: Java Continuous Integration
+    name: Java CI
     runs-on: macos-latest
 
     steps:
