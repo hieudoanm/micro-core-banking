@@ -34,7 +34,7 @@ export class CreateTransactionDto {
   @ApiProperty({
     enum: TransactionType,
     description: 'Type of transaction (DEPOSIT, WITHDRAWAL, TRANSFER)',
-    example: TransactionType.DEPOSIT,
+    example: TransactionType.TRANSFER,
   })
   @IsEnum(TransactionType)
   transactionType: TransactionType;

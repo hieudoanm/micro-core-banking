@@ -128,7 +128,7 @@ export class TransactionService {
 
       // Publish transaction to Kafka
       try {
-        await this.kafkaService.produceAvro('transactions', 1, {
+        await this.kafkaService.produce('transactions', {
           transactionId: transaction.transactionRef,
           accountId: account.id,
           relatedAccountId: relatedAccount ? relatedAccount.id : null,

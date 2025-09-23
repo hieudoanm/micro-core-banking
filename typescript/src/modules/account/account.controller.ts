@@ -18,7 +18,7 @@ import { CreateAccountDto } from './account.dto';
 import { AccountService } from './account.service';
 
 @ApiTags('Accounts') // Groups all endpoints under "Accounts" in Swagger UI
-@Controller('api/v1/accounts')
+@Controller('api/accounts')
 export class AccountController {
   constructor(private readonly accountService: AccountService) {}
 

@@ -16,7 +16,7 @@ export class TransactionConsumerService {
    * Initialize the consumer and subscribe to the "transactions" topic
    */
   async onModuleInit() {
-    await this.kafkaService.consumeAvro(
+    await this.kafkaService.consume(
       'transactions',
       async (data: CreateTransactionDto) => {
         try {

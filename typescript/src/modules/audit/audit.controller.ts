@@ -10,7 +10,7 @@ import { AuditLogResponse } from './audit.dto';
 import { AuditService } from './audit.service';
 
 @ApiTags('Audit Logs') // Group under Swagger section
-@Controller('api/v1/audit/logs')
+@Controller('api/audit/logs')
 export class AuditController {
   constructor(private readonly auditService: AuditService) {}
 
@@ -18,7 +18,7 @@ export class AuditController {
    * Get a paginated list of audit logs with optional filtering by entity type and action.
    *
    * Example:
-   * GET /api/v1/audit/logs?page=1&size=10&entityType=Account&action=CREATE
+   * GET /api/audit/logs?page=1&size=10&entityType=Account&action=CREATE
    */
   @Get()
   @ApiOperation({ summary: 'Get paginated audit logs with optional filters' })
@@ -91,7 +91,7 @@ export class AuditController {
    * Get a specific audit log by ID.
    *
    * Example:
-   * GET /api/v1/audit/logs/123
+   * GET /api/audit/logs/123
    */
   @Get(':id')
   @ApiOperation({ summary: 'Get audit log by ID' })

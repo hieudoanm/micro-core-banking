@@ -1,3 +1,7 @@
+volumes:
+  postgres_data:
+  kafka_data:
+
 services:
   postgres:
     image: postgres:17.6
@@ -8,6 +12,8 @@ services:
       POSTGRES_PASSWORD: micro_core_banking
     ports:
       - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Added volume for persistence
 
   zookeeper:
     image: confluentinc/cp-zookeeper:7.9.2
@@ -21,32 +27,28 @@ services:
   kafka:
     image: confluentinc/cp-kafka:7.9.2
     container_name: kafka
+    hostname: kafka
     depends_on:
       - zookeeper
     ports:
-      - "9092:9092"
-      - "9093:9093"
+      - "9092:9092" # External access for local dev
+      - "29092:29092" # Internal Docker network access (NEW)
     environment:
-      CLUSTER_ID: kOJ5kqA9T2ac4jRTK1ODAw
-      KAFKA_PROCESS_ROLES: broker,controller
       KAFKA_NODE_ID: 1
-      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
-      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
-      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@localhost:9093
-      KAFKA_LOG_DIRS: /var/lib/kafka/data
+      CLUSTER_ID: kOJ5kqA9T2ac4jRTK1ODAw
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      # Map internal and external protocols (NEW)
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+      # Define listeners for internal and external access (UPDATED)
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,PLAINTEXT_INTERNAL://0.0.0.0:29092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://kafka:29092
+      # Replication factors for single-broker setup (same but grouped for clarity)
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
-
-  schema-registry:
-    image: confluentinc/cp-schema-registry:7.6.0
-    container_name: schema-registry
-    ports:
-      - "8081:8081"
-    environment:
-      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: "localhost:9092"
-      SCHEMA_REGISTRY_LISTENERS: "http://0.0.0.0:8081"
-      SCHEMA_REGISTRY_HOST_NAME: schema-registry
-    depends_on:
-      - kafka
+      KAFKA_MIN_INSYNC_REPLICAS: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      # Kafka log dir (same)
+      KAFKA_LOG_DIRS: /var/lib/kafka/data
+    volumes:
+      - kafka_data:/var/lib/kafka/data # Added volume for persistence

@@ -18,7 +18,7 @@ import { CreateTransactionDto } from './transaction.dto';
 import { TransactionService } from './transaction.service';
 
 @ApiTags('Transactions') // Group under "Transactions" in Swagger UI
-@Controller('api/v1/transactions')
+@Controller('api/transactions')
 export class TransactionController {
   constructor(private readonly transactionService: TransactionService) {}
 
