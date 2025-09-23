@@ -1,18 +1,18 @@
-name: Continuous Integration
+name: Java Continuous Integration
 
 on:
   push:
     branches:
-      - "master"       # Main production branch
-      - "develop"      # Development branch
-      - "hotfix/**"    # Hotfix branches
-      - "feature/**"   # Feature branches
-      - "renovate/**"  # Renovate bot branches
+      - "master" # Main production branch
+      - "develop" # Development branch
+      - "hotfix/**" # Hotfix branches
+      - "feature/**" # Feature branches
+      - "renovate/**" # Renovate bot branches
       - "dependabot/**" # Dependabot branches
 
 jobs:
   ci:
-    name: Java CI
+    name: Java Continuous Integration
     runs-on: macos-latest
 
     steps:
@@ -42,15 +42,9 @@ jobs:
       # Step 4: Verify Gradle wrapper
       - name: Verify Gradle Wrapper
         run: ./gradlew wrapper --gradle-version 9.1.0
+        working-directory: java
 
-      # Step 5: Build and run tests
+      # Step 5: Build App
       - name: Build
         run: ./gradlew clean build --info
-
-      # Step 6: Run Checkstyle
-      - name: Run Checkstyle
-        run: ./gradlew checkstyleMain checkstyleTest
-
-      # Step 7: Run PMD
-      - name: Run PMD
-        run: ./gradlew pmdMain pmdTest
+        working-directory: java
