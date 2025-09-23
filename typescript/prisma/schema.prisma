@@ -49,6 +49,7 @@ model Account {
 enum AccountType {
   SAVINGS
   CHECKING
+  CREDIT
   // add other types here
 
   @@schema("micro_core_banking")
