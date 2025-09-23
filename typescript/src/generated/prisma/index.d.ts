@@ -1133,15 +1133,15 @@ export namespace Prisma {
   }
 
   export type AuditLogSumAggregateOutputType = {
-    id: bigint | null
-    entityId: bigint | null
+    id: number | null
+    entityId: number | null
   }
 
   export type AuditLogMinAggregateOutputType = {
-    id: bigint | null
+    id: number | null
     action: string | null
     entityType: string | null
-    entityId: bigint | null
+    entityId: number | null
     message: string | null
     createdBy: string | null
     createdAt: Date | null
@@ -1149,10 +1149,10 @@ export namespace Prisma {
   }
 
   export type AuditLogMaxAggregateOutputType = {
-    id: bigint | null
+    id: number | null
     action: string | null
     entityType: string | null
-    entityId: bigint | null
+    entityId: number | null
     message: string | null
     createdBy: string | null
     createdAt: Date | null
@@ -1303,12 +1303,12 @@ export namespace Prisma {
   }
 
   export type AuditLogGroupByOutputType = {
-    id: bigint
+    id: number
     action: string
     entityType: string
-    entityId: bigint
-    message: string | null
-    createdBy: string | null
+    entityId: number
+    message: string
+    createdBy: string
     createdAt: Date
     updatedAt: Date
     _count: AuditLogCountAggregateOutputType | null
@@ -1382,12 +1382,12 @@ export namespace Prisma {
     name: "AuditLog"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      id: bigint
+      id: number
       action: string
       entityType: string
-      entityId: bigint
-      message: string | null
-      createdBy: string | null
+      entityId: number
+      message: string
+      createdBy: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["auditLog"]>
@@ -1813,10 +1813,10 @@ export namespace Prisma {
    * Fields of the AuditLog model
    */
   interface AuditLogFieldRefs {
-    readonly id: FieldRef<"AuditLog", 'BigInt'>
+    readonly id: FieldRef<"AuditLog", 'Int'>
     readonly action: FieldRef<"AuditLog", 'String'>
     readonly entityType: FieldRef<"AuditLog", 'String'>
-    readonly entityId: FieldRef<"AuditLog", 'BigInt'>
+    readonly entityId: FieldRef<"AuditLog", 'Int'>
     readonly message: FieldRef<"AuditLog", 'String'>
     readonly createdBy: FieldRef<"AuditLog", 'String'>
     readonly createdAt: FieldRef<"AuditLog", 'DateTime'>
@@ -2205,12 +2205,12 @@ export namespace Prisma {
   }
 
   export type AccountSumAggregateOutputType = {
-    id: bigint | null
+    id: number | null
     balance: Decimal | null
   }
 
   export type AccountMinAggregateOutputType = {
-    id: bigint | null
+    id: number | null
     accountNumber: string | null
     customerId: string | null
     accountType: $Enums.AccountType | null
@@ -2222,7 +2222,7 @@ export namespace Prisma {
   }
 
   export type AccountMaxAggregateOutputType = {
-    id: bigint | null
+    id: number | null
     accountNumber: string | null
     customerId: string | null
     accountType: $Enums.AccountType | null
@@ -2381,7 +2381,7 @@ export namespace Prisma {
   }
 
   export type AccountGroupByOutputType = {
-    id: bigint
+    id: number
     accountNumber: string
     customerId: string
     accountType: $Enums.AccountType
@@ -2475,7 +2475,7 @@ export namespace Prisma {
       transactions: Prisma.$TransactionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: bigint
+      id: number
       accountNumber: string
       customerId: string
       accountType: $Enums.AccountType
@@ -2908,7 +2908,7 @@ export namespace Prisma {
    * Fields of the Account model
    */
   interface AccountFieldRefs {
-    readonly id: FieldRef<"Account", 'BigInt'>
+    readonly id: FieldRef<"Account", 'Int'>
     readonly accountNumber: FieldRef<"Account", 'String'>
     readonly customerId: FieldRef<"Account", 'String'>
     readonly accountType: FieldRef<"Account", 'AccountType'>
@@ -3366,13 +3366,13 @@ export namespace Prisma {
   }
 
   export type TransactionSumAggregateOutputType = {
-    id: bigint | null
+    id: number | null
     amount: Decimal | null
-    accountId: bigint | null
+    accountId: number | null
   }
 
   export type TransactionMinAggregateOutputType = {
-    id: bigint | null
+    id: number | null
     transactionRef: string | null
     transactionType: $Enums.TransactionType | null
     amount: Decimal | null
@@ -3380,11 +3380,11 @@ export namespace Prisma {
     description: string | null
     createdAt: Date | null
     updatedAt: Date | null
-    accountId: bigint | null
+    accountId: number | null
   }
 
   export type TransactionMaxAggregateOutputType = {
-    id: bigint | null
+    id: number | null
     transactionRef: string | null
     transactionType: $Enums.TransactionType | null
     amount: Decimal | null
@@ -3392,7 +3392,7 @@ export namespace Prisma {
     description: string | null
     createdAt: Date | null
     updatedAt: Date | null
-    accountId: bigint | null
+    accountId: number | null
   }
 
   export type TransactionCountAggregateOutputType = {
@@ -3545,7 +3545,7 @@ export namespace Prisma {
   }
 
   export type TransactionGroupByOutputType = {
-    id: bigint
+    id: number
     transactionRef: string
     transactionType: $Enums.TransactionType
     amount: Decimal
@@ -3553,7 +3553,7 @@ export namespace Prisma {
     description: string | null
     createdAt: Date
     updatedAt: Date
-    accountId: bigint
+    accountId: number
     _count: TransactionCountAggregateOutputType | null
     _avg: TransactionAvgAggregateOutputType | null
     _sum: TransactionSumAggregateOutputType | null
@@ -3643,7 +3643,7 @@ export namespace Prisma {
       account: Prisma.$AccountPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: bigint
+      id: number
       transactionRef: string
       transactionType: $Enums.TransactionType
       amount: Prisma.Decimal
@@ -3651,7 +3651,7 @@ export namespace Prisma {
       description: string | null
       createdAt: Date
       updatedAt: Date
-      accountId: bigint
+      accountId: number
     }, ExtArgs["result"]["transaction"]>
     composites: {}
   }
@@ -4076,7 +4076,7 @@ export namespace Prisma {
    * Fields of the Transaction model
    */
   interface TransactionFieldRefs {
-    readonly id: FieldRef<"Transaction", 'BigInt'>
+    readonly id: FieldRef<"Transaction", 'Int'>
     readonly transactionRef: FieldRef<"Transaction", 'String'>
     readonly transactionType: FieldRef<"Transaction", 'TransactionType'>
     readonly amount: FieldRef<"Transaction", 'Decimal'>
@@ -4084,7 +4084,7 @@ export namespace Prisma {
     readonly description: FieldRef<"Transaction", 'String'>
     readonly createdAt: FieldRef<"Transaction", 'DateTime'>
     readonly updatedAt: FieldRef<"Transaction", 'DateTime'>
-    readonly accountId: FieldRef<"Transaction", 'BigInt'>
+    readonly accountId: FieldRef<"Transaction", 'Int'>
   }
     
 
@@ -4587,16 +4587,16 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'BigInt'
+   * Reference to a field of type 'Int'
    */
-  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
     
 
 
   /**
-   * Reference to a field of type 'BigInt[]'
+   * Reference to a field of type 'Int[]'
    */
-  export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
+  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
     
 
 
@@ -4685,20 +4685,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Int'
-   */
-  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-    
-
-
-  /**
-   * Reference to a field of type 'Int[]'
-   */
-  export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
-    
-
-
-  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -4719,12 +4705,12 @@ export namespace Prisma {
     AND?: AuditLogWhereInput | AuditLogWhereInput[]
     OR?: AuditLogWhereInput[]
     NOT?: AuditLogWhereInput | AuditLogWhereInput[]
-    id?: BigIntFilter<"AuditLog"> | bigint | number
+    id?: IntFilter<"AuditLog"> | number
     action?: StringFilter<"AuditLog"> | string
     entityType?: StringFilter<"AuditLog"> | string
-    entityId?: BigIntFilter<"AuditLog"> | bigint | number
-    message?: StringNullableFilter<"AuditLog"> | string | null
-    createdBy?: StringNullableFilter<"AuditLog"> | string | null
+    entityId?: IntFilter<"AuditLog"> | number
+    message?: StringFilter<"AuditLog"> | string
+    createdBy?: StringFilter<"AuditLog"> | string
     createdAt?: DateTimeFilter<"AuditLog"> | Date | string
     updatedAt?: DateTimeFilter<"AuditLog"> | Date | string
   }
@@ -4734,22 +4720,22 @@ export namespace Prisma {
     action?: SortOrder
     entityType?: SortOrder
     entityId?: SortOrder
-    message?: SortOrderInput | SortOrder
-    createdBy?: SortOrderInput | SortOrder
+    message?: SortOrder
+    createdBy?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type AuditLogWhereUniqueInput = Prisma.AtLeast<{
-    id?: bigint | number
+    id?: number
     AND?: AuditLogWhereInput | AuditLogWhereInput[]
     OR?: AuditLogWhereInput[]
     NOT?: AuditLogWhereInput | AuditLogWhereInput[]
     action?: StringFilter<"AuditLog"> | string
     entityType?: StringFilter<"AuditLog"> | string
-    entityId?: BigIntFilter<"AuditLog"> | bigint | number
-    message?: StringNullableFilter<"AuditLog"> | string | null
-    createdBy?: StringNullableFilter<"AuditLog"> | string | null
+    entityId?: IntFilter<"AuditLog"> | number
+    message?: StringFilter<"AuditLog"> | string
+    createdBy?: StringFilter<"AuditLog"> | string
     createdAt?: DateTimeFilter<"AuditLog"> | Date | string
     updatedAt?: DateTimeFilter<"AuditLog"> | Date | string
   }, "id">
@@ -4759,8 +4745,8 @@ export namespace Prisma {
     action?: SortOrder
     entityType?: SortOrder
     entityId?: SortOrder
-    message?: SortOrderInput | SortOrder
-    createdBy?: SortOrderInput | SortOrder
+    message?: SortOrder
+    createdBy?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: AuditLogCountOrderByAggregateInput
@@ -4774,12 +4760,12 @@ export namespace Prisma {
     AND?: AuditLogScalarWhereWithAggregatesInput | AuditLogScalarWhereWithAggregatesInput[]
     OR?: AuditLogScalarWhereWithAggregatesInput[]
     NOT?: AuditLogScalarWhereWithAggregatesInput | AuditLogScalarWhereWithAggregatesInput[]
-    id?: BigIntWithAggregatesFilter<"AuditLog"> | bigint | number
+    id?: IntWithAggregatesFilter<"AuditLog"> | number
     action?: StringWithAggregatesFilter<"AuditLog"> | string
     entityType?: StringWithAggregatesFilter<"AuditLog"> | string
-    entityId?: BigIntWithAggregatesFilter<"AuditLog"> | bigint | number
-    message?: StringNullableWithAggregatesFilter<"AuditLog"> | string | null
-    createdBy?: StringNullableWithAggregatesFilter<"AuditLog"> | string | null
+    entityId?: IntWithAggregatesFilter<"AuditLog"> | number
+    message?: StringWithAggregatesFilter<"AuditLog"> | string
+    createdBy?: StringWithAggregatesFilter<"AuditLog"> | string
     createdAt?: DateTimeWithAggregatesFilter<"AuditLog"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"AuditLog"> | Date | string
   }
@@ -4788,7 +4774,7 @@ export namespace Prisma {
     AND?: AccountWhereInput | AccountWhereInput[]
     OR?: AccountWhereInput[]
     NOT?: AccountWhereInput | AccountWhereInput[]
-    id?: BigIntFilter<"Account"> | bigint | number
+    id?: IntFilter<"Account"> | number
     accountNumber?: StringFilter<"Account"> | string
     customerId?: StringFilter<"Account"> | string
     accountType?: EnumAccountTypeFilter<"Account"> | $Enums.AccountType
@@ -4814,7 +4800,7 @@ export namespace Prisma {
   }
 
   export type AccountWhereUniqueInput = Prisma.AtLeast<{
-    id?: bigint | number
+    id?: number
     accountNumber?: string
     AND?: AccountWhereInput | AccountWhereInput[]
     OR?: AccountWhereInput[]
@@ -4850,7 +4836,7 @@ export namespace Prisma {
     AND?: AccountScalarWhereWithAggregatesInput | AccountScalarWhereWithAggregatesInput[]
     OR?: AccountScalarWhereWithAggregatesInput[]
     NOT?: AccountScalarWhereWithAggregatesInput | AccountScalarWhereWithAggregatesInput[]
-    id?: BigIntWithAggregatesFilter<"Account"> | bigint | number
+    id?: IntWithAggregatesFilter<"Account"> | number
     accountNumber?: StringWithAggregatesFilter<"Account"> | string
     customerId?: StringWithAggregatesFilter<"Account"> | string
     accountType?: EnumAccountTypeWithAggregatesFilter<"Account"> | $Enums.AccountType
@@ -4865,7 +4851,7 @@ export namespace Prisma {
     AND?: TransactionWhereInput | TransactionWhereInput[]
     OR?: TransactionWhereInput[]
     NOT?: TransactionWhereInput | TransactionWhereInput[]
-    id?: BigIntFilter<"Transaction"> | bigint | number
+    id?: IntFilter<"Transaction"> | number
     transactionRef?: StringFilter<"Transaction"> | string
     transactionType?: EnumTransactionTypeFilter<"Transaction"> | $Enums.TransactionType
     amount?: DecimalFilter<"Transaction"> | Decimal | DecimalJsLike | number | string
@@ -4873,7 +4859,7 @@ export namespace Prisma {
     description?: StringNullableFilter<"Transaction"> | string | null
     createdAt?: DateTimeFilter<"Transaction"> | Date | string
     updatedAt?: DateTimeFilter<"Transaction"> | Date | string
-    accountId?: BigIntFilter<"Transaction"> | bigint | number
+    accountId?: IntFilter<"Transaction"> | number
     account?: XOR<AccountScalarRelationFilter, AccountWhereInput>
   }
 
@@ -4891,7 +4877,7 @@ export namespace Prisma {
   }
 
   export type TransactionWhereUniqueInput = Prisma.AtLeast<{
-    id?: bigint | number
+    id?: number
     transactionRef?: string
     AND?: TransactionWhereInput | TransactionWhereInput[]
     OR?: TransactionWhereInput[]
@@ -4902,7 +4888,7 @@ export namespace Prisma {
     description?: StringNullableFilter<"Transaction"> | string | null
     createdAt?: DateTimeFilter<"Transaction"> | Date | string
     updatedAt?: DateTimeFilter<"Transaction"> | Date | string
-    accountId?: BigIntFilter<"Transaction"> | bigint | number
+    accountId?: IntFilter<"Transaction"> | number
     account?: XOR<AccountScalarRelationFilter, AccountWhereInput>
   }, "id" | "transactionRef">
 
@@ -4927,7 +4913,7 @@ export namespace Prisma {
     AND?: TransactionScalarWhereWithAggregatesInput | TransactionScalarWhereWithAggregatesInput[]
     OR?: TransactionScalarWhereWithAggregatesInput[]
     NOT?: TransactionScalarWhereWithAggregatesInput | TransactionScalarWhereWithAggregatesInput[]
-    id?: BigIntWithAggregatesFilter<"Transaction"> | bigint | number
+    id?: IntWithAggregatesFilter<"Transaction"> | number
     transactionRef?: StringWithAggregatesFilter<"Transaction"> | string
     transactionType?: EnumTransactionTypeWithAggregatesFilter<"Transaction"> | $Enums.TransactionType
     amount?: DecimalWithAggregatesFilter<"Transaction"> | Decimal | DecimalJsLike | number | string
@@ -4935,88 +4921,84 @@ export namespace Prisma {
     description?: StringNullableWithAggregatesFilter<"Transaction"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Transaction"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Transaction"> | Date | string
-    accountId?: BigIntWithAggregatesFilter<"Transaction"> | bigint | number
+    accountId?: IntWithAggregatesFilter<"Transaction"> | number
   }
 
   export type AuditLogCreateInput = {
-    id?: bigint | number
     action?: string
     entityType?: string
-    entityId?: bigint | number
-    message?: string | null
-    createdBy?: string | null
+    entityId?: number
+    message?: string
+    createdBy?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type AuditLogUncheckedCreateInput = {
-    id?: bigint | number
+    id?: number
     action?: string
     entityType?: string
-    entityId?: bigint | number
-    message?: string | null
-    createdBy?: string | null
+    entityId?: number
+    message?: string
+    createdBy?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type AuditLogUpdateInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
     action?: StringFieldUpdateOperationsInput | string
     entityType?: StringFieldUpdateOperationsInput | string
-    entityId?: BigIntFieldUpdateOperationsInput | bigint | number
-    message?: NullableStringFieldUpdateOperationsInput | string | null
-    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
+    entityId?: IntFieldUpdateOperationsInput | number
+    message?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AuditLogUncheckedUpdateInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     action?: StringFieldUpdateOperationsInput | string
     entityType?: StringFieldUpdateOperationsInput | string
-    entityId?: BigIntFieldUpdateOperationsInput | bigint | number
-    message?: NullableStringFieldUpdateOperationsInput | string | null
-    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
+    entityId?: IntFieldUpdateOperationsInput | number
+    message?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AuditLogCreateManyInput = {
-    id?: bigint | number
+    id?: number
     action?: string
     entityType?: string
-    entityId?: bigint | number
-    message?: string | null
-    createdBy?: string | null
+    entityId?: number
+    message?: string
+    createdBy?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type AuditLogUpdateManyMutationInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
     action?: StringFieldUpdateOperationsInput | string
     entityType?: StringFieldUpdateOperationsInput | string
-    entityId?: BigIntFieldUpdateOperationsInput | bigint | number
-    message?: NullableStringFieldUpdateOperationsInput | string | null
-    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
+    entityId?: IntFieldUpdateOperationsInput | number
+    message?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AuditLogUncheckedUpdateManyInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     action?: StringFieldUpdateOperationsInput | string
     entityType?: StringFieldUpdateOperationsInput | string
-    entityId?: BigIntFieldUpdateOperationsInput | bigint | number
-    message?: NullableStringFieldUpdateOperationsInput | string | null
-    createdBy?: NullableStringFieldUpdateOperationsInput | string | null
+    entityId?: IntFieldUpdateOperationsInput | number
+    message?: StringFieldUpdateOperationsInput | string
+    createdBy?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type AccountCreateInput = {
-    id?: bigint | number
     accountNumber?: string
     customerId?: string
     accountType: $Enums.AccountType
@@ -5029,7 +5011,7 @@ export namespace Prisma {
   }
 
   export type AccountUncheckedCreateInput = {
-    id?: bigint | number
+    id?: number
     accountNumber?: string
     customerId?: string
     accountType: $Enums.AccountType
@@ -5042,7 +5024,6 @@ export namespace Prisma {
   }
 
   export type AccountUpdateInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
     accountNumber?: StringFieldUpdateOperationsInput | string
     customerId?: StringFieldUpdateOperationsInput | string
     accountType?: EnumAccountTypeFieldUpdateOperationsInput | $Enums.AccountType
@@ -5055,7 +5036,7 @@ export namespace Prisma {
   }
 
   export type AccountUncheckedUpdateInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     accountNumber?: StringFieldUpdateOperationsInput | string
     customerId?: StringFieldUpdateOperationsInput | string
     accountType?: EnumAccountTypeFieldUpdateOperationsInput | $Enums.AccountType
@@ -5068,7 +5049,7 @@ export namespace Prisma {
   }
 
   export type AccountCreateManyInput = {
-    id?: bigint | number
+    id?: number
     accountNumber?: string
     customerId?: string
     accountType: $Enums.AccountType
@@ -5080,7 +5061,6 @@ export namespace Prisma {
   }
 
   export type AccountUpdateManyMutationInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
     accountNumber?: StringFieldUpdateOperationsInput | string
     customerId?: StringFieldUpdateOperationsInput | string
     accountType?: EnumAccountTypeFieldUpdateOperationsInput | $Enums.AccountType
@@ -5092,7 +5072,7 @@ export namespace Prisma {
   }
 
   export type AccountUncheckedUpdateManyInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     accountNumber?: StringFieldUpdateOperationsInput | string
     customerId?: StringFieldUpdateOperationsInput | string
     accountType?: EnumAccountTypeFieldUpdateOperationsInput | $Enums.AccountType
@@ -5104,7 +5084,6 @@ export namespace Prisma {
   }
 
   export type TransactionCreateInput = {
-    id?: bigint | number
     transactionRef?: string
     transactionType: $Enums.TransactionType
     amount?: Decimal | DecimalJsLike | number | string
@@ -5116,7 +5095,7 @@ export namespace Prisma {
   }
 
   export type TransactionUncheckedCreateInput = {
-    id?: bigint | number
+    id?: number
     transactionRef?: string
     transactionType: $Enums.TransactionType
     amount?: Decimal | DecimalJsLike | number | string
@@ -5124,11 +5103,10 @@ export namespace Prisma {
     description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    accountId: bigint | number
+    accountId: number
   }
 
   export type TransactionUpdateInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
     transactionRef?: StringFieldUpdateOperationsInput | string
     transactionType?: EnumTransactionTypeFieldUpdateOperationsInput | $Enums.TransactionType
     amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -5140,7 +5118,7 @@ export namespace Prisma {
   }
 
   export type TransactionUncheckedUpdateInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     transactionRef?: StringFieldUpdateOperationsInput | string
     transactionType?: EnumTransactionTypeFieldUpdateOperationsInput | $Enums.TransactionType
     amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -5148,11 +5126,11 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    accountId?: BigIntFieldUpdateOperationsInput | bigint | number
+    accountId?: IntFieldUpdateOperationsInput | number
   }
 
   export type TransactionCreateManyInput = {
-    id?: bigint | number
+    id?: number
     transactionRef?: string
     transactionType: $Enums.TransactionType
     amount?: Decimal | DecimalJsLike | number | string
@@ -5160,11 +5138,10 @@ export namespace Prisma {
     description?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    accountId: bigint | number
+    accountId: number
   }
 
   export type TransactionUpdateManyMutationInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
     transactionRef?: StringFieldUpdateOperationsInput | string
     transactionType?: EnumTransactionTypeFieldUpdateOperationsInput | $Enums.TransactionType
     amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -5175,7 +5152,7 @@ export namespace Prisma {
   }
 
   export type TransactionUncheckedUpdateManyInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     transactionRef?: StringFieldUpdateOperationsInput | string
     transactionType?: EnumTransactionTypeFieldUpdateOperationsInput | $Enums.TransactionType
     amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -5183,18 +5160,18 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    accountId?: BigIntFieldUpdateOperationsInput | bigint | number
+    accountId?: IntFieldUpdateOperationsInput | number
   }
 
-  export type BigIntFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -5212,21 +5189,6 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -5236,11 +5198,6 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
   }
 
   export type AuditLogCountOrderByAggregateInput = {
@@ -5286,20 +5243,20 @@ export namespace Prisma {
     entityId?: SortOrder
   }
 
-  export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
     _count?: NestedIntFilter<$PrismaModel>
     _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedBigIntFilter<$PrismaModel>
-    _min?: NestedBigIntFilter<$PrismaModel>
-    _max?: NestedBigIntFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -5318,24 +5275,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
-  }
-
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -5476,9 +5415,29 @@ export namespace Prisma {
     not?: NestedEnumTransactionTypeFilter<$PrismaModel> | $Enums.TransactionType
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type AccountScalarRelationFilter = {
     is?: AccountWhereInput
     isNot?: AccountWhereInput
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
   }
 
   export type TransactionCountOrderByAggregateInput = {
@@ -5539,20 +5498,34 @@ export namespace Prisma {
     _max?: NestedEnumTransactionTypeFilter<$PrismaModel>
   }
 
-  export type BigIntFieldUpdateOperationsInput = {
-    set?: bigint | number
-    increment?: bigint | number
-    decrement?: bigint | number
-    multiply?: bigint | number
-    divide?: bigint | number
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -5627,6 +5600,10 @@ export namespace Prisma {
     set?: $Enums.TransactionType
   }
 
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
   export type AccountUpdateOneRequiredWithoutTransactionsNestedInput = {
     create?: XOR<AccountCreateWithoutTransactionsInput, AccountUncheckedCreateWithoutTransactionsInput>
     connectOrCreate?: AccountCreateOrConnectWithoutTransactionsInput
@@ -5635,15 +5612,15 @@ export namespace Prisma {
     update?: XOR<XOR<AccountUpdateToOneWithWhereWithoutTransactionsInput, AccountUpdateWithoutTransactionsInput>, AccountUncheckedUpdateWithoutTransactionsInput>
   }
 
-  export type NestedBigIntFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -5660,20 +5637,6 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -5685,23 +5648,7 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type NestedBigIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedBigIntFilter<$PrismaModel>
-    _min?: NestedBigIntFilter<$PrismaModel>
-    _max?: NestedBigIntFilter<$PrismaModel>
-  }
-
-  export type NestedIntFilter<$PrismaModel = never> = {
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -5709,7 +5656,12 @@ export namespace Prisma {
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type NestedFloatFilter<$PrismaModel = never> = {
@@ -5738,34 +5690,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
-  }
-
-  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -5850,6 +5774,20 @@ export namespace Prisma {
     not?: NestedEnumTransactionTypeFilter<$PrismaModel> | $Enums.TransactionType
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type NestedEnumTransactionTypeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: $Enums.TransactionType | EnumTransactionTypeFieldRefInput<$PrismaModel>
     in?: $Enums.TransactionType[] | ListEnumTransactionTypeFieldRefInput<$PrismaModel>
@@ -5860,8 +5798,35 @@ export namespace Prisma {
     _max?: NestedEnumTransactionTypeFilter<$PrismaModel>
   }
 
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
   export type TransactionCreateWithoutAccountInput = {
-    id?: bigint | number
     transactionRef?: string
     transactionType: $Enums.TransactionType
     amount?: Decimal | DecimalJsLike | number | string
@@ -5872,7 +5837,7 @@ export namespace Prisma {
   }
 
   export type TransactionUncheckedCreateWithoutAccountInput = {
-    id?: bigint | number
+    id?: number
     transactionRef?: string
     transactionType: $Enums.TransactionType
     amount?: Decimal | DecimalJsLike | number | string
@@ -5912,7 +5877,7 @@ export namespace Prisma {
     AND?: TransactionScalarWhereInput | TransactionScalarWhereInput[]
     OR?: TransactionScalarWhereInput[]
     NOT?: TransactionScalarWhereInput | TransactionScalarWhereInput[]
-    id?: BigIntFilter<"Transaction"> | bigint | number
+    id?: IntFilter<"Transaction"> | number
     transactionRef?: StringFilter<"Transaction"> | string
     transactionType?: EnumTransactionTypeFilter<"Transaction"> | $Enums.TransactionType
     amount?: DecimalFilter<"Transaction"> | Decimal | DecimalJsLike | number | string
@@ -5920,11 +5885,10 @@ export namespace Prisma {
     description?: StringNullableFilter<"Transaction"> | string | null
     createdAt?: DateTimeFilter<"Transaction"> | Date | string
     updatedAt?: DateTimeFilter<"Transaction"> | Date | string
-    accountId?: BigIntFilter<"Transaction"> | bigint | number
+    accountId?: IntFilter<"Transaction"> | number
   }
 
   export type AccountCreateWithoutTransactionsInput = {
-    id?: bigint | number
     accountNumber?: string
     customerId?: string
     accountType: $Enums.AccountType
@@ -5936,7 +5900,7 @@ export namespace Prisma {
   }
 
   export type AccountUncheckedCreateWithoutTransactionsInput = {
-    id?: bigint | number
+    id?: number
     accountNumber?: string
     customerId?: string
     accountType: $Enums.AccountType
@@ -5964,7 +5928,6 @@ export namespace Prisma {
   }
 
   export type AccountUpdateWithoutTransactionsInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
     accountNumber?: StringFieldUpdateOperationsInput | string
     customerId?: StringFieldUpdateOperationsInput | string
     accountType?: EnumAccountTypeFieldUpdateOperationsInput | $Enums.AccountType
@@ -5976,7 +5939,7 @@ export namespace Prisma {
   }
 
   export type AccountUncheckedUpdateWithoutTransactionsInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     accountNumber?: StringFieldUpdateOperationsInput | string
     customerId?: StringFieldUpdateOperationsInput | string
     accountType?: EnumAccountTypeFieldUpdateOperationsInput | $Enums.AccountType
@@ -5988,7 +5951,7 @@ export namespace Prisma {
   }
 
   export type TransactionCreateManyAccountInput = {
-    id?: bigint | number
+    id?: number
     transactionRef?: string
     transactionType: $Enums.TransactionType
     amount?: Decimal | DecimalJsLike | number | string
@@ -5999,7 +5962,6 @@ export namespace Prisma {
   }
 
   export type TransactionUpdateWithoutAccountInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
     transactionRef?: StringFieldUpdateOperationsInput | string
     transactionType?: EnumTransactionTypeFieldUpdateOperationsInput | $Enums.TransactionType
     amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -6010,7 +5972,7 @@ export namespace Prisma {
   }
 
   export type TransactionUncheckedUpdateWithoutAccountInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     transactionRef?: StringFieldUpdateOperationsInput | string
     transactionType?: EnumTransactionTypeFieldUpdateOperationsInput | $Enums.TransactionType
     amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
@@ -6021,7 +5983,7 @@ export namespace Prisma {
   }
 
   export type TransactionUncheckedUpdateManyWithoutAccountInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     transactionRef?: StringFieldUpdateOperationsInput | string
     transactionType?: EnumTransactionTypeFieldUpdateOperationsInput | $Enums.TransactionType
     amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string

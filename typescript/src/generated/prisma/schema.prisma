@@ -16,12 +16,12 @@ datasource db {
 }
 
 model AuditLog {
-  id         BigInt   @id @default(autoincrement()) @map("id")
+  id         Int      @id @default(autoincrement()) @map("id")
   action     String   @default("") @map("action") @db.VarChar(50)
   entityType String   @default("") @map("entity_type") @db.VarChar(50)
-  entityId   BigInt   @default(0) @map("entity_id")
-  message    String?  @default("") @map("message") @db.Text
-  createdBy  String?  @default("") @map("created_by") @db.VarChar(50)
+  entityId   Int      @default(0) @map("entity_id")
+  message    String   @default("") @map("message") @db.Text
+  createdBy  String   @default("") @map("created_by") @db.VarChar(50)
   createdAt  DateTime @default(now()) @map("created_at") @db.Timestamptz()
   updatedAt  DateTime @default(now()) @updatedAt @map("updated_at")
 
@@ -30,7 +30,7 @@ model AuditLog {
 }
 
 model Account {
-  id            BigInt        @id @default(autoincrement()) @map("id")
+  id            Int           @id @default(autoincrement()) @map("id")
   accountNumber String        @unique @default("") @map("account_number") @db.VarChar(20)
   customerId    String        @default("") @map("customer_id") @db.VarChar(36)
   accountType   AccountType   @map("account_type")
@@ -74,7 +74,7 @@ enum TransactionType {
 }
 
 model Transaction {
-  id              BigInt          @id @default(autoincrement()) @map("id")
+  id              Int             @id @default(autoincrement()) @map("id")
   transactionRef  String          @unique @default("") @map("transaction_ref") @db.VarChar(36)
   transactionType TransactionType @map("transaction_type")
   amount          Decimal         @default(0) @map("amount") @db.Decimal(15, 2)
@@ -85,7 +85,7 @@ model Transaction {
 
   // Relations
   account   Account @relation(fields: [accountId], references: [id])
-  accountId BigInt
+  accountId Int
 
   @@map("transactions")
   @@schema("micro_core_banking")
