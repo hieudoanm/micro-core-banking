@@ -29,17 +29,18 @@ A 12 week Java Bootcamp for TypeScript Developers.
 
 ## TechStack
 
-| No. | Language         | [Java][java]                                    | [TypeScript][typescript] |
-| --- | ---------------- | ----------------------------------------------- | ------------------------ |
-| 01  | Linter           | [PMD][pmd]                                      | [ESLint][eslint]         |
-| 02  | Formatter        | [CheckStyle][checkstyle] + [Spotless][spotless] | [Prettier][prettier]     |
-| 03  | Unit Test        | [JUnit][junit]                                  | [Jest][jest]             |
-| 04  | Framework        | [Spring Boot][spring-boot]                      | [Nest.js][nest.js]       |
-| 05  | Database         | [PostgreSQL][postgresql]                        | `same`                   |
-| 06  | Migrations       | [Flyway][flyway]                                | [Prisma][prisma]         |
-| 07  | ORM              | [Spring ORM][spring-orm]                        | [Prisma][prisma]         |
-| 08  | Messages Broker  | [Kafka][kafka]                                  | `same`                   |
-| 09  | Containerisation | [OpenJDK][docker-openjdk]                       | [Node.js][docker-node]   |
+| No. | Language            | [Java][java]                                    | [TypeScript][typescript] |
+| --- | ------------------- | ----------------------------------------------- | ------------------------ |
+| 01  | Packages Management | [Gradle][gradle]                                | [pnpm][pnpm]             |
+| 02  | Linter              | [PMD][pmd]                                      | [ESLint][eslint]         |
+| 03  | Formatter           | [CheckStyle][checkstyle] + [Spotless][spotless] | [Prettier][prettier]     |
+| 04  | Unit Test           | [JUnit][junit]                                  | [Jest][jest]             |
+| 05  | Framework           | [Spring Boot][spring-boot]                      | [Nest.js][nest.js]       |
+| 06  | Database            | [PostgreSQL][postgresql]                        | `same`                   |
+| 07  | Migrations          | [Flyway][flyway]                                | [Prisma][prisma]         |
+| 08  | ORM                 | [Spring ORM][spring-orm]                        | [Prisma][prisma]         |
+| 09  | Messages Broker     | [Kafka][kafka]                                  | `same`                   |
+| 10  | Containerisation    | [OpenJDK][docker-openjdk]                       | [Node.js][docker-node]   |
 
 ## Tutorial
 
@@ -119,12 +120,14 @@ A 12 week Java Bootcamp for TypeScript Developers.
 [docker-openjdk]: https://hub.docker.com/_/openjdk
 [eslint]: https://eslint.org/
 [flyway]: https://www.red-gate.com/products/flyway/community/
+[gradle]: https://gradle.org/
 [java]: https://www.java.com/en/
 [jest]: https://jestjs.io/
 [junit]: https://junit.org/
 [kafka]: https://kafka.apache.org/
 [nest.js]: https://nestjs.com/
 [pmd]: https://pmd.github.io/
+[pnpm]: https://pnpm.io/
 [postgresql]: https://www.postgresql.org/
 [prettier]: https://prettier.io/
 [prisma]: https://www.prisma.io/

@@ -3,5 +3,6 @@
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "file",
   "editor.formatOnType": true,
+  "java.compile.nullAnalysis.mode": "automatic",
   "vsicons.presets.nestjs": true
 }

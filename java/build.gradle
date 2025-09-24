@@ -121,3 +121,9 @@ spotless {
         googleJavaFormat()  // auto-format according to Google Java Style
     }
 }
+
+// Enable dependency locking for reproducible builds
+dependencyLocking {
+  // Lock all configurations (implementation, testImplementation, etc.)
+  lockAllConfigurations()
+}
