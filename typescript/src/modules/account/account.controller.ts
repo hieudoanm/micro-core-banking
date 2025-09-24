@@ -1,11 +1,13 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   HttpCode,
   HttpStatus,
   Param,
   Post,
+  Put,
 } from '@nestjs/common';
 import {
   ApiBody,
@@ -14,7 +16,7 @@ import {
   ApiResponse,
   ApiTags,
 } from '@nestjs/swagger';
-import { CreateAccountDto } from './account.dto';
+import { CreateAccountDto, UpdateAccountDto } from './account.dto';
 import { AccountService } from './account.service';
 
 @ApiTags('Accounts') // Groups all endpoints under "Accounts" in Swagger UI
@@ -75,5 +77,61 @@ export class AccountController {
   })
   async getAccountByNumber(@Param('accountNumber') accountNumber: string) {
     return this.accountService.getAccountByNumber(accountNumber);
+  }
+
+  /**
+   * Update an existing account by account number
+   */
+  @Put(':accountNumber')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: 'Update an account by account number' })
+  @ApiParam({
+    name: 'accountNumber',
+    type: String,
+    description: 'The unique account number to update',
+    example: 'ACCT-1695453892990',
+  })
+  @ApiBody({ type: UpdateAccountDto })
+  @ApiResponse({
+    status: 200,
+    description: 'Account updated successfully.',
+  })
+  @ApiResponse({
+    status: 404,
+    description: 'Account not found.',
+  })
+  @ApiResponse({
+    status: 400,
+    description: 'Bad Request. Validation failed.',
+  })
+  async updateAccount(
+    @Param('accountNumber') accountNumber: string,
+    @Body() updateAccountDto: UpdateAccountDto,
+  ) {
+    return this.accountService.updateAccount(accountNumber, updateAccountDto);
+  }
+
+  /**
+   * Delete an account by account number
+   */
+  @Delete(':accountNumber')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  @ApiOperation({ summary: 'Delete an account by account number' })
+  @ApiParam({
+    name: 'accountNumber',
+    type: String,
+    description: 'The unique account number to delete',
+    example: 'ACCT-1695453892990',
+  })
+  @ApiResponse({
+    status: 204,
+    description: 'Account deleted successfully.',
+  })
+  @ApiResponse({
+    status: 404,
+    description: 'Account not found.',
+  })
+  async deleteAccount(@Param('accountNumber') accountNumber: string) {
+    return this.accountService.deleteAccount(accountNumber);
   }
 }

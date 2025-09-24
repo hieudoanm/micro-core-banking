@@ -1,4 +1,4 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, PartialType } from '@nestjs/swagger';
 import { IsEnum, IsNumber, IsString } from 'class-validator';
 
 export enum AccountType {
@@ -37,3 +37,5 @@ export class CreateAccountDto {
   @IsEnum(AccountType)
   accountType: AccountType;
 }
+
+export class UpdateAccountDto extends PartialType(CreateAccountDto) {}
