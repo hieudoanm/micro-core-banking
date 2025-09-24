@@ -10,7 +10,12 @@ A 12 week Java Bootcamp for TypeScript Developers.
   - [Tutorial](#tutorial)
     - [Chapter 1: Java](#chapter-1-java)
       - [Week 1: Core Java Foundations](#week-1-core-java-foundations)
-      - [Week 2: Advanced Java \& Best Practices](#week-2-advanced-java--best-practices)
+        - [OOP (Classes, Interfaces, Inheritance, Polymorphism)](#oop-classes-interfaces-inheritance-polymorphism)
+        - [SOLID principles, design patterns (Factory, Singleton, Strategy)](#solid-principles-design-patterns-factory-singleton-strategy)
+      - [Week 2: Development Tools](#week-2-development-tools)
+        - [CheckStyle](#checkstyle)
+        - [PMD](#pmd)
+        - [Spotless](#spotless)
     - [Chapter 2: Spring Boot](#chapter-2-spring-boot)
       - [Week 3: Spring Boot Fundamentals](#week-3-spring-boot-fundamentals)
       - [Week 4: Spring Boot \& Persistence Layer](#week-4-spring-boot--persistence-layer)
@@ -48,15 +53,20 @@ A 12 week Java Bootcamp for TypeScript Developers.
 
 #### Week 1: Core Java Foundations
 
-1. OOP (Classes, Interfaces, Inheritance, Polymorphism)
-2. Packages, Exceptions, Collections (List, Set, Map)
-3. JUnit basics
+##### OOP (Classes, Interfaces, Inheritance, Polymorphism)
 
-#### Week 2: Advanced Java & Best Practices
-
-1. SOLID principles, design patterns (Factory, Singleton, Strategy)
+1. Packages, Exceptions, Collections (List, Set, Map)
 2. Logging with SLF4J/Logback
-3. Unit testing (Mockito)
+
+##### SOLID principles, design patterns (Factory, Singleton, Strategy)
+
+#### Week 2: Development Tools
+
+##### CheckStyle
+
+##### PMD
+
+##### Spotless
 
 ### Chapter 2: Spring Boot
 
@@ -93,6 +103,7 @@ A 12 week Java Bootcamp for TypeScript Developers.
 1. Event-driven architecture concepts
 2. Kafka basics: Topics, Partitions, Brokers, Producers, Consumers
 3. Spring Kafka basics
+4. Schema Registry
 
 #### Week 8: Integrating Kafka with Spring Boot
 
