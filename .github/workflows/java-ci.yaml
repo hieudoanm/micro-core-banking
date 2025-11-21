@@ -20,7 +20,7 @@ jobs:
     steps:
       # Step 1: Checkout the repository
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       # Step 2: Setup Java 21 (installed via Homebrew)
       - name: Setup Java
