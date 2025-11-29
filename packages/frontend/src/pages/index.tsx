@@ -4,7 +4,7 @@ import { download } from '@qrcode/utils/download';
 import { toDataURL } from 'qrcode';
 import { FC, useState } from 'react';
 
-const QRCode: FC = () => {
+const HomePage: FC = () => {
   const [{ dataURL = '', url = 'https://google.com' }, setState] = useState<{
     dataURL: string;
     url: string;
@@ -49,7 +49,13 @@ const QRCode: FC = () => {
               }}>
               Generate
             </button>
-            {dataURL && (
+          </div>
+          {dataURL && (
+            <div className="flex w-full max-w-lg flex-col gap-y-4 md:gap-y-8">
+              <div
+                className="aspect-square w-full overflow-hidden rounded-2xl border border-neutral-800 bg-contain bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${dataURL})` }}
+              />
               <button
                 type="button"
                 className="btn btn-primary w-full md:w-auto"
@@ -62,14 +68,6 @@ const QRCode: FC = () => {
                 }}>
                 Download
               </button>
-            )}
-          </div>
-          {dataURL && (
-            <div className="w-full">
-              <div
-                className="mx-auto aspect-square w-full max-w-md overflow-hidden rounded-2xl border border-neutral-800 bg-contain bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${dataURL})` }}
-              />
             </div>
           )}
         </div>
@@ -78,4 +76,4 @@ const QRCode: FC = () => {
   );
 };
 
-export default QRCode;
+export default HomePage;
