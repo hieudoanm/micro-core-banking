@@ -1,0 +1,31 @@
+{
+  "name": "@qrcode/app",
+  "version": "0.0.1",
+  "description": "QRCode",
+  "keywords": [
+    "qrcode"
+  ],
+  "homepage": "https://github.com/hieudoanm/qrcode#readme",
+  "bugs": {
+    "url": "https://github.com/hieudoanm/qrcode/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hieudoanm/qrcode.git"
+  },
+  "license": "GPL-3.0",
+  "author": "hieudoanm <hieumdoan@gmail.com> (https://hieudoanm.github.io)",
+  "scripts": {
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "build": "turbo run build",
+    "format": "turbo run format",
+    "prepare": "husky || true"
+  },
+  "devDependencies": {
+    "husky": "9.1.7",
+    "rimraf": "6.1.2",
+    "turbo": "2.6.1"
+  },
+  "packageManager": "pnpm@10.24.0"
+}
